@@ -6,9 +6,7 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Locale;
 
 @Slf4j
@@ -23,15 +21,19 @@ class DatabaseMetadataTest {
 
             DatabaseMetaData metaData = connection.getMetaData();
             boolean storesUpperCase = metaData.storesUpperCaseIdentifiers();
-            log.info("Database stores identifiers in uppercase: " + storesUpperCase);
+            log.info("Database stores identifiers in uppercase: {}", storesUpperCase);
 
             // Check if the database stores identifiers in lowercase
             boolean storesLowerCase = metaData.storesLowerCaseIdentifiers();
-            log.info("Database stores identifiers in lowercase: " + storesLowerCase);
+            log.info("Database stores identifiers in lowercase: {}", storesLowerCase);
 
             // Specify the table name for which you want to retrieve metadata
             String tableName = "all_char_types_table";
             String tableSeparator = "---------- {} ----------";
+            log.info(tableSeparator, tableName);
+            printTable(metaData, tableName);
+
+            tableName = "boolean_types_table";
             log.info(tableSeparator, tableName);
             printTable(metaData, tableName);
 

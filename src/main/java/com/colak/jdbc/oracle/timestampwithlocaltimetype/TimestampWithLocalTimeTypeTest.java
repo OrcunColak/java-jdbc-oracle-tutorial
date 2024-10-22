@@ -12,6 +12,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.TimeZone;
 
+// Insert OffsetDateTime into TIMESTAMP WITH LOCAL TIME ZONE column type as setObject() and read it back
 @Slf4j
 class TimestampWithLocalTimeTypeTest {
 

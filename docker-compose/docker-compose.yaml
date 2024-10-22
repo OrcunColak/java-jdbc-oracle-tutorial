@@ -5,7 +5,7 @@
 #Authentication : User / Password
 #User : sa
 #Password : My1passw
-version: '3'
+version: '3.9'
 services:
   oracledb:
     image: gvenzl/oracle-free:latest-faststart

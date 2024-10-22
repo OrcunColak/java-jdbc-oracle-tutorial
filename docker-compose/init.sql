@@ -28,6 +28,22 @@ CREATE TABLE bit_types_table (
     bit_column number(1)
 );
 
+CREATE TABLE boolean_types_table (
+    id  NUMBER NOT NULL ENABLE,
+    active BOOLEAN DEFAULT NULL
+);
+
+-- BOOLEAN = TRUE OR FALSE
+INSERT INTO boolean_types_table (id, active) VALUES (1, TRUE);
+INSERT INTO boolean_types_table (id, active) VALUES (2, FALSE);
+-- BOOLEAN = 1 OR 0
+INSERT INTO boolean_types_table (id, active) VALUES (3, 1);
+INSERT INTO boolean_types_table (id, active) VALUES (4, 0);
+-- BOOLEAN = 'Y' OR 'N'
+INSERT INTO boolean_types_table (id, active) VALUES (5, 'Y');
+INSERT INTO boolean_types_table (id, active) VALUES (6, 'N');
+
+
 CREATE TABLE integer_types_table (
     tinyint_column number(3),
     smallint_column smallint,

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+// Insert java.sql.Timestamp into TIMESTAMP(6) column type as setTimestamp(), setObject() and read it back
 @Slf4j
 class TimestampTypeTest {
 
@@ -45,7 +46,7 @@ class TimestampTypeTest {
         String insertQuery = "INSERT INTO " + TABLE_NAME + " (timestamp_column) VALUES (?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 
-            LocalDateTime localDateTime = LocalDateTime .of(2024,2,12,23,23,23,12345);
+            LocalDateTime localDateTime = LocalDateTime.of(2024, 2, 12, 23, 23, 23, 12345);
             Timestamp sqlTimestamp = Timestamp.valueOf(localDateTime);
             preparedStatement.setTimestamp(1, sqlTimestamp);
 
@@ -69,7 +70,7 @@ class TimestampTypeTest {
             Timestamp value = resultSet.getTimestamp("timestamp_column");
             LocalDateTime localDateTime = value.toLocalDateTime();
             // timestamp_column: 2024-02-12T23:23:23.000012
-            log.info("timestamp_column: " + localDateTime);
+            log.info("timestamp_column: {}", localDateTime);
         }
     }
 
@@ -77,7 +78,7 @@ class TimestampTypeTest {
         String insertQuery = "INSERT INTO " + TABLE_NAME + " (timestamp_column) VALUES (?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 
-            LocalDateTime localDateTime = LocalDateTime .of(2024,2,12,23,23,23,12345);
+            LocalDateTime localDateTime = LocalDateTime.of(2024, 2, 12, 23, 23, 23, 12345);
             preparedStatement.setObject(1, localDateTime);
 
             // Executing the INSERT operation
@@ -99,7 +100,7 @@ class TimestampTypeTest {
             resultSet.next();
             LocalDateTime value = resultSet.getObject("timestamp_column", LocalDateTime.class);
             // timestamp_column: 2024-02-12T23:23:23.000012
-            log.info("timestamp_column: " + value);
+            log.info("timestamp_column: {}", value);
         }
     }
 
