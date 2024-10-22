@@ -11,6 +11,8 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.TimeZone;
 
+// Shows that with "TIMESTAMP WITH TIME ZONE" time zone or offset is stored, displayed with original time zone.
+// It is not affected from JVM time zone change
 @Slf4j
 class TimestampWithTimeZoneTypeTest {
 

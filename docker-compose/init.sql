@@ -62,8 +62,14 @@ CREATE TABLE all_numeric_types_table (
 
 CREATE TABLE datetime_types_table (
     date_column DATE,
+
+    -- does not store any time zone information. it stores the exact date and time you provide without any reference to a time zone
     timestamp_column TIMESTAMP(6),
+    -- time zone or offset is stored, displayed with original time zone
     timestamp_with_time_zone_column TIMESTAMP WITH TIME ZONE,
+
+    -- converted to database time zone, displayed in the session's local time zone
+    -- Use when users in different zones need local time display
     timestamp_with_local_time_zone_column TIMESTAMP WITH LOCAL TIME ZONE,
     interval_column INTERVAL DAY TO SECOND
 );
