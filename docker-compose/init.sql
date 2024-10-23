@@ -4,6 +4,12 @@ GRANT connect, resource, dba to sa;
 
 ALTER SESSION SET current_schema = sa;
 
+-- Store UUID as string
+CREATE TABLE uuid_table (
+    id VARCHAR2(36) PRIMARY KEY,  -- Column to store UUID
+    name VARCHAR2(100)            -- Other columns
+);
+
 CREATE TABLE all_char_types_table (
     char_column char(5),
     varchar2_column varchar2(20),
